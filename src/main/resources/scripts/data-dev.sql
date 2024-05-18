@@ -5,3 +5,7 @@ insert into funcionarios (id,nome_funcionario, data_entrada) values (nextval('fu
 insert into departamentos (id, nome) values (nextval('departamentos_seq'), 'RH');
 insert into departamentos (id, nome) values (nextval('departamentos_seq'), 'Financeiro');
 insert into departamentos (id, nome) values (nextval('departamentos_seq'), 'Tech');
+
+insert into cargos (id, nome, id_departamento_fk) values (nextval('cargos_seq'), 'Manager', 1);
+insert into cargos (id, nome, id_departamento_fk) values (nextval('cargos_seq'), 'Trainee', 51);
+insert into cargos (id, nome, id_departamento_fk) values (nextval('cargos_seq'), 'Boss', 101);

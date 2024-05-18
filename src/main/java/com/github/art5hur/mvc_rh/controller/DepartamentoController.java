@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.art5hur.mvc_rh.model.Departamento;
@@ -25,6 +27,12 @@ public class DepartamentoController {
 		List<Departamento> departamentos = departamentoRepository.findAll();
 		model.addAttribute("departamentos", departamentos);
 		return "departamento/list";
+	}
+	
+	@PostMapping("save")
+	public String save(@ModelAttribute Departamento departamento) {
+		departamentoRepository.save(departamento);
+		return "redirect:/departamentos";
 	}
 	
 	@GetMapping("cargos")
